@@ -18,15 +18,25 @@ public class Expression {
   private int value;
   
   public Expression(int n) {
-    
+    value = n;
   }
   
   public int getValue() {
     return value;
   }
   
-  public void add(Operations operation, int value) {
-    
+  public void calculate(Operations operation, int value) {
+    if (operation.equals(Operations.PLUS)) {
+      this.value += value;
+    } else if (operation.equals(Operations.MINUS)) {
+      this.value -= value;
+    } else if (operation.equals(Operations.DIV)) {
+      if (value != 0) {
+        this.value = this.value / value;
+      }
+    } else if (operation.equals(Operations.MULT)) {
+      this.value = this.value * value;
+    }
   }
   
 }
